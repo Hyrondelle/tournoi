@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input"
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
       text-4xl font-extrabold tracking-tight text-balance">
       Tournoi
     </h1>
- 
+ <Card>
+    <Input type="text" placeholder="Entrez votre nom" />
+ </Card>
 
     </div>
   );
