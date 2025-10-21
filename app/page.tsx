@@ -33,7 +33,13 @@ export default function Home() {
     <Button type="submit" >Validez</Button>
     </form>
  </Card>
-
+    <div>
+      {tableauJoueurs.map((joueur, index) => (
+        <div key={index}>
+          <p>{joueur}</p>
+        </div>
+      ))}
+    </div>
     </div>
   );
 }
