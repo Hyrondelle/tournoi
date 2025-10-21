@@ -7,13 +7,15 @@ import {useState} from "react";
 
 export default function Home() {
   const [nomJoueur, setNomJoueur] = useState("");
-  var tableau: string[] =[];
+  const [tableauJoueurs, setTableauJoueurs] = useState<string[]>([]);
+  const [compteurJoueurs, setCompteurJoueurs] = useState(1);
 
   const addJoueur =(event: React.FormEvent<HTMLFormElement>) =>{
     event.preventDefault();
-    tableau.push(nomJoueur);
+    tableauJoueurs.push(nomJoueur);
+    setCompteurJoueurs(compteurJoueurs + 1);
     setNomJoueur("");
-    console.log(tableau);
+    console.log(tableauJoueurs);
     
   }
   return (
@@ -24,7 +26,7 @@ export default function Home() {
     </h1>
  <Card className="w-full max-w-sm">
   <CardDescription>
-    Nom du joueur?
+    Nom du joueur {compteurJoueurs} ?
   </CardDescription>
   <form onSubmit={addJoueur}>
     <Input type="text" placeholder="Entrez un nom" value={nomJoueur}  onChange={(e) => setNomJoueur(e.target.value)} />
