@@ -18,6 +18,9 @@ export default function Home() {
     console.log(tableauJoueurs);
     
   }
+  const validPlayers = () => {
+    console.log(tableauJoueurs);
+  }
   return (
     <div className="flex flex-col items-center justify-center h-screen ">
       <h1 className="
@@ -30,7 +33,8 @@ export default function Home() {
   </CardDescription>
   <form onSubmit={addJoueur}>
     <Input type="text" placeholder="Entrez un nom" value={nomJoueur}  onChange={(e) => setNomJoueur(e.target.value)} />
-    <Button type="submit" >Validez</Button>
+    <Button type="submit" className="bg-green-500 text-white hover:bg-green-600">Validez</Button>
+    <Button type="button" className="bg-blue-500 text-white hover:bg-blue-600" onClick={() => validPlayers()}>Terminer</Button>
     </form>
  </Card>
     <div>
