@@ -9,6 +9,7 @@ export default function Home() {
   const [nomJoueur, setNomJoueur] = useState("");
   const [tableauJoueurs, setTableauJoueurs] = useState<string[]>([]);
   const [compteurJoueurs, setCompteurJoueurs] = useState(1);
+  const[joueursOk, setJoueursOk] = useState(false);
 
   const addJoueur =(event: React.FormEvent<HTMLFormElement>) =>{
     event.preventDefault();
@@ -19,7 +20,7 @@ export default function Home() {
     
   }
   const validPlayers = () => {
-    console.log(tableauJoueurs);
+    setJoueursOk(true);
   }
   return (
     <div className="flex flex-col items-center justify-center h-screen ">
@@ -27,6 +28,8 @@ export default function Home() {
       text-4xl font-extrabold tracking-tight text-balance">
       Tournoi
     </h1>
+    {!joueursOk ? 
+    <div>
  <Card className="w-full max-w-sm">
   <CardDescription>
     Nom du joueur {compteurJoueurs} ?
@@ -44,6 +47,9 @@ export default function Home() {
         </div>
       ))}
     </div>
+    </div>
+     : <div></div>
+  }
     </div>
   );
 }
