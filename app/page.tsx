@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card,CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input"
 import {useState} from "react";
+import { calculs } from "./calculs/calculs";
+import HeightPlayers from "./calculs/heightplayers";
 
 export default function Home() {
   const [nomJoueur, setNomJoueur] = useState("");
@@ -19,8 +21,24 @@ export default function Home() {
     console.log(tableauJoueurs);
     
   }
+  const returnTableau = () => {
+    switch (tableauJoueurs.length) {
+      case 8:
+          return <HeightPlayers joueurs={tableauJoueurs} />;
+      case 3:
+          return 2;
+      case 4:
+          return 3;
+      case 5:
+          return 4;
+          default:
+              return console.log("Nombre de joueurs invalide");
+              break;
+  }
+  }
   const validPlayers = () => {
     setJoueursOk(true);
+    
   }
   return (
     <div className="flex flex-col items-center justify-center h-screen ">
@@ -48,7 +66,9 @@ export default function Home() {
       ))}
     </div>
     </div>
-     : <div></div>
+     : <div>
+    {returnTableau() as React.ReactNode}
+     </div>
   }
     </div>
   );
