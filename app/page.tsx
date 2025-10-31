@@ -66,7 +66,7 @@ export default function Home() {
       ))}
     </div>
     </div>
-     : <div>
+     : <div className="w-full max-w-sm">
     {returnTableau() as React.ReactNode}
      </div>
   }
