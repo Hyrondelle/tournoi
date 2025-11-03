@@ -6,17 +6,29 @@ const HeightPlayers = ({ joueurs }: HeightPlayersProps) => {
     console.log(joueurs);
     return (
         <div className="flex flex-row gap-2">
-        <div className="flex flex-col gap-2 w-1/2">
+        <div className="flex flex-col gap-2 w-1/3">
             {joueurs.map((joueur, index) => (
                 <div className="border border-gray-300 rounded-md p-2" key={index}>{joueur}</div>
             ))}
         </div>
-        <div className="flex w-1/2">
-        <svg height="100" width="100">
+        <div className="flex flex-col w-1/3">
+            <svg width="100%" height="100%">
+                
+            <polyline points="0,25,50,25,50,45,100,45" stroke="blue" strokeWidth="3" fill="none" />
+            <polyline points="0,65,50,65,50,45,100,45" stroke="blue" strokeWidth="3" fill="none" />
 
-    <polyline points="0,25,50,25,50,100,100,75" stroke="blue" stroke-width="3" fill="none" />
+            <polyline points="0,125,50,125,50,145,100,145" stroke="blue" strokeWidth="3" fill="none" />
+            <polyline points="0,165,50,165,50,145,100,145" stroke="blue" strokeWidth="3" fill="none" />
 
-</svg>
+            <polyline points="0,225,50,225,50,245,100,245" stroke="blue" strokeWidth="3" fill="none" />
+            <polyline points="0,265,50,265,50,245,100,245" stroke="blue" strokeWidth="3" fill="none" />
+
+            <polyline points="0,325,50,325,50,345,100,345" stroke="blue" strokeWidth="3" fill="none" />
+            <polyline points="0,365,50,365,50,345,100,345" stroke="blue" strokeWidth="3" fill="none" />
+            </svg>
+            
+        </div>
+        <div className="flex w-1/3">
         </div>
         </div>
     )
