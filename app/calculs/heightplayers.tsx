@@ -1,14 +1,20 @@
+import { Button } from "@/components/ui/button";
+
 type HeightPlayersProps = {
     joueurs: string[];
 };
 
 const HeightPlayers = ({ joueurs }: HeightPlayersProps) => {
+    const vainqueur = (e: React.MouseEvent<HTMLButtonElement>) => {
+        console.log(e.currentTarget.textContent);
+        return e.currentTarget.textContent
+    }
     console.log(joueurs);
     return (
         <div className="flex flex-row gap-2">
         <div className="flex flex-col gap-2 w-1/3">
             {joueurs.map((joueur, index) => (
-                <div className="border border-gray-300 rounded-md p-2" key={index}>{joueur}</div>
+                <Button onClick={(e: React.MouseEvent<HTMLButtonElement>) => vainqueur(e)} className="border border-gray-300 rounded-md p-2" key={index}>{joueur}</Button>
             ))}
         </div>
         <div className="flex flex-col w-1/3">
@@ -29,6 +35,7 @@ const HeightPlayers = ({ joueurs }: HeightPlayersProps) => {
             
         </div>
         <div className="flex w-1/3">
+        {vainqueur && <Button>{vainqueur}</Button>}
         </div>
         </div>
     )
