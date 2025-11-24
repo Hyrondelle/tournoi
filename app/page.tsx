@@ -4,18 +4,22 @@ import { Button } from "@/components/ui/button";
 import { Card,CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input"
 import {useState} from "react";
-import { calculs } from "./calculs/calculs";
 import HeightPlayers from "./calculs/heightplayers";
+
+export type Joueurs = {
+  name : string,
+  score : number
+}
 
 export default function Home() {
   const [nomJoueur, setNomJoueur] = useState("");
-  const [tableauJoueurs, setTableauJoueurs] = useState<string[]>([]);
+  const [tableauJoueurs, setTableauJoueurs] = useState<Joueurs[]>([]);
   const [compteurJoueurs, setCompteurJoueurs] = useState(1);
   const[joueursOk, setJoueursOk] = useState(false);
 
   const addJoueur =(event: React.FormEvent<HTMLFormElement>) =>{
     event.preventDefault();
-    tableauJoueurs.push(nomJoueur);
+    setTableauJoueurs((prev)=>[...prev,{name:nomJoueur,score:0}])
     setCompteurJoueurs(compteurJoueurs + 1);
     setNomJoueur("");
     console.log(tableauJoueurs);
@@ -61,7 +65,7 @@ export default function Home() {
     <div>
       {tableauJoueurs.map((joueur, index) => (
         <div key={index}>
-          <p>{joueur}</p>
+          <p>{joueur.name}</p>
         </div>
       ))}
     </div>
